@@ -1,9 +1,10 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
+  var deployTarget = process.env.DEPLOY_TARGET;
   var ENV = {
     modulePrefix: 'emberjs-talk-example',
-    environment: environment,
+    environment: deployTarget,
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -39,8 +40,12 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
+  if (deployTarget === 'staging') {
+    ENV.buildEnv = 'production';
+  }
 
+  if (deployTarget === 'production') {
+    ENV.buildEnv = 'production';
   }
 
   return ENV;

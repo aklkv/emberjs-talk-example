@@ -2,7 +2,9 @@
 
 module.exports = function(deployTarget) {
   var ENV = {
-    build: {},
+    build: {
+      environment: 'production'
+    },
     pipeline: {
       // This setting runs the ember-cli-deploy activation hooks on every deploy
       // which is necessary in order to run ember-cli-deploy-cloudfront.
@@ -14,7 +16,8 @@ module.exports = function(deployTarget) {
     s3: {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
-      filePattern: "*"
+      filePattern: "*",
+      cacheControl: 'max-age=0, no-cache, public'
     },
     cloudfront: {
       accessKeyId: process.env.AWS_KEY,
@@ -27,6 +30,7 @@ module.exports = function(deployTarget) {
     ENV.s3.bucket = process.env.DEVELOPMENT_BUCKET;
     ENV.s3.region = process.env.DEVELOPMENT_REGION;
     ENV.cloudfront.distribution = process.env.DEVELOPMENT_DISTRIBUTION;
+    ENV.pipeline.activateOnDeploy = false;
   }
 
   if (deployTarget === 'staging') {
@@ -34,6 +38,7 @@ module.exports = function(deployTarget) {
     ENV.s3.bucket = process.env.STAGING_BUCKET;
     ENV.s3.region = process.env.STAGING_REGION;
     ENV.cloudfront.distribution = process.env.STAGING_DISTRIBUTION;
+    ENV.pipeline.activateOnDeploy = false;
   }
 
   if (deployTarget === 'production') {
@@ -41,6 +46,7 @@ module.exports = function(deployTarget) {
     ENV.s3.bucket = process.env.PRODUCTION_BUCKET;
     ENV.s3.region = process.env.PRODUCTION_REGION;
     ENV.cloudfront.distribution = process.env.PRODUCTION_DISTRIBUTION;
+    ENV.pipeline.activateOnDeploy = false;
   }
 
   // Note: if you need to build some configuration asynchronously, you can return
