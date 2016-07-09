@@ -20,9 +20,6 @@ install:
 
 script:
   - npm test
-
-after-script:
-  script:
   - if [ "$TRAVIS_BRANCH" == "dev" ]; then ember deploy development --verbose; elif
     [ "$TRAVIS_BRANCH" == "stage" ]; then ember deploy staging --verbose; elif [ "$TRAVIS_BRANCH"
     == "master" ]; then ember deploy production --verbose; fi
