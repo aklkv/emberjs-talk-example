@@ -23,3 +23,11 @@ script:
   - if [ "$TRAVIS_BRANCH" == "dev" ]; then ember deploy development --verbose; elif
     [ "$TRAVIS_BRANCH" == "stage" ]; then ember deploy staging --verbose; elif [ "$TRAVIS_BRANCH"
     == "master" ]; then ember deploy production --verbose; fi
+
+# notifications:
+#   slack:
+#     rooms:
+#       secure: HRNtdw5i2RaK6dD6wp0Y76U2Mc+SMoK9LnIHXoKnnDpkNnHyNpcKyFUq9neVx1lR5QwonjH1Icg2MGU8v/lmhIdwa7d62tVWQBhV7C6Cg+KcnMRTMQesT549EH+Lmk0Gjv9aAG6mcQFubuWbDRrOb1oDMviGlB0dGSK0ryn4hYp8XBeyG+RG8ruI6t94sdKTVePbfmhOPoiUWLXqEcqgBlWP/Gq3WbVxTlGiXdDGtcoDGklGMD7o4Dx3BwQR7r+18Km3bFncX3jmaqmycqbY4vcdpe+wNggHWwIUyV84isR00oGemLluN/BdswP17KiucVCg1VLt+saoyY1AGV39TEQww1XOjy7ThjHWJbee1vSMMODGcG/7eD87g+CJovYHXbSlIe7FCqJgD+tXI8OAvP36rcvEv6Ao5RhpR+/OahiJoLrl/fz/gQxsQSVVRoZKoit7fcpGjOQrG17p2pEPzeVbIP/PtC9HHx5OCSiKWMpfA9+GoEDt4TB5h8JQDoNecTx671RL2SOb5RSVjjS0gg6zyRmXuYBPdVw7e2L8LJWW9FlfAENRmCNp8g9CKqOVLoivvZzL6H74u0L5Ej3xbuoaBTczzhNsA/hA+d8WIrut1Ug0yfbGKAF01nioBRU/TlirUSGY121LjWOxSicGaPFzkmkXGefdHu8xmbK0X3A=
+# addons:
+#   code_climate:
+#     repo_token: a03140c91dbbbf084ff05caefb45c0a520f595dd417ec46934aa45e43f06585c
