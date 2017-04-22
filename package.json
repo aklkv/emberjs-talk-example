@@ -23,7 +23,7 @@
     "ember-ajax": "^2.0.1",
     "ember-cli": "2.6.2",
     "ember-cli-app-version": "^1.0.0",
-    "ember-cli-babel": "^5.1.6",
+    "ember-cli-babel": "^6.0.0",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-deploy": "^0.6.4",
     "ember-cli-deploy-aws-pack": "0.4.0",
